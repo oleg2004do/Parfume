@@ -1,0 +1,7 @@
+
+
+
+$('#cart-item-<%= params[:id] %>').remove();
+
+document.getElementById("cart-item-<%= @cart_item.id %>").remove();
+$('#total-price').text('<%= @total_price %>');

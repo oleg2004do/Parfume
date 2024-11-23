@@ -1,0 +1,12 @@
+<h1>Checkout</h1>
+
+<%= form_with url: checkout_path, method: :post do |form| %>
+  <p><strong>Your Cart:</strong></p>
+  <% @cart.cart_items.each do |item| %>
+    <p><%= item.product.name %> - <%= item.quantity %> x $<%= item.product.price %></p>
+  <% end %>
+
+  <p><strong>Total: $<%= @cart.total_price %></strong></p>
+  
+  <%= form.submit "Proceed to Payment" %>
+<% end %>

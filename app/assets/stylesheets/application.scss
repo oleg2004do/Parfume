@@ -1,0 +1,189 @@
+/* Для головної сторінки */
+body {
+  background-color: #1a1a1a; /* Чорний фон для тіла сторінки */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.main-background {
+  background-image: asset-url("back-ground.jpg"); /* Додаємо фон */
+  background-size: 100%; /* Фон буде розтягуватися до 100% ширини та висоти */
+  background-color: #1a1a1a;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+/* Стилі для header */
+.main-header {
+  background-color: rgba(0, 0, 0, 0.7); /* Прозорий чорний фон для header */
+  padding: 20px;
+  text-align: center;
+}
+
+.main-header .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-header .navbar .logo {
+  font-size: 1.5em;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.main-header nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.main-header nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.main-header nav a:hover {
+  background-color: #444;
+}
+
+/* Стилі для кнопок */
+.btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Стилі для footer */
+.footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+/* Стилі для продуктів */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  padding: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #f1f1f1;
+  margin-bottom: 15px;
+}
+
+.product-details {
+  margin-bottom: 15px;
+}
+
+.product-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.product-description {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.product-price {
+  font-size: 1rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.product-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.product-actions .btn {
+  font-size: 0.9rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.product-actions .btn-info {
+  background-color: #007bff;
+  color: white;
+}
+
+.product-actions .btn-warning {
+  background-color: #ffc107;
+  color: black;
+}
+
+.product-actions .btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.product-actions .btn-success {
+  background-color: #28a745;
+  color: white;
+}
+
+/* Стилі для спливаючого повідомлення */
+#buy-alert {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px;
+  background-color: #28a745; /* Зелене повідомлення */
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  display: none;
+}
+
+#buy-alert.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0); /* Піднімаємо знизу */
+}

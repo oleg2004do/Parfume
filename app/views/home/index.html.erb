@@ -1,0 +1,48 @@
+<h1 class="page-title">Product Catalog</h1>
+
+<section class="products">
+<% if current_user&.admin? %>
+<div class="admin-actions">
+  <%= link_to 'Add Product', new_product_path, class: 'btn btn-primary' %>
+</div>
+<% end %>
+
+
+
+    <div class="product-grid">
+      <% if @products.present? %>
+        <% @products.each do |product| %>
+          <div class="product-card">
+            <% if product.image.attached? %>
+              <%= image_tag product.image, class: "product-image", alt: product.name %>
+            <% else %>
+              <div class="placeholder-image">No Image Available</div>
+            <% end %>
+
+            <div class="product-details">
+              <h3 class="product-title"><%= product.name %></h3>
+              <p class="product-description"><%= truncate(product.description, length: 100) %></p>
+              <p class="product-price"><strong>Price:</strong> $<%= product.price %></p>
+            </div>
+
+            <!-- Actions under the product card -->
+            <div class="product-actions">
+              <%= link_to 'View', product_path(product), class: 'btn btn-info' %>
+
+              <% if current_user&.admin? %>
+                <%= link_to 'Edit', edit_product_path(product), class: 'btn btn-warning' %>
+                <%= button_to "Delete", product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+
+                <% elsif current_user %>
+                <%= link_to 'Buy', add_item_cart_path(product_id: product.id), method: :post, class: 'btn btn-success' %>
+              <% else %>
+                <%= link_to 'Buy', '#', class: 'btn btn-danger disabled', disabled: 'true' %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <p>No products available.</p>
+      <% end %>
+    </div>
+  </section>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Perfume Store" %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'home', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
+   
+    <%= javascript_importmap_tags %>
+    <!-- Шрифти -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="main-background">
+    <header class="main-header">
+      <div class="navbar">
+        <a href="<%= root_path %>" class="logo">Perfume Store</a>
+        <nav>
+          <%= link_to "Contact Us", contact_us_path, class: "btn btn-contact" %>
+          
+          <% if current_user %>
+            <span>Welcome, <%= current_user.name %>!</span>
+            <%= link_to 'Log Out', logout_path, method: :get, class: 'btn logout' %>
+            <%= link_to 'Cart', cart_path, class: 'btn btn-cart' %>
+            
+            
+            <!-- Profile Link -->
+            <%= link_to 'Profile', profile_path, class: 'btn btn-profile' %>
+          <% else %>
+            <%= link_to "Log In", login_path, class: "btn btn-login" %>
+            <%= link_to "Sign Up", new_user_path, class: "btn btn-signup" %>
+          <% end %>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <%= yield %>
+
+      <% if flash[:notice] %>
+        <div class="alert alert-success">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="alert alert-danger">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+    </main>
+
+    <footer class="main-footer">
+      <p>&copy; <%= Time.now.year %> Perfume Store. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

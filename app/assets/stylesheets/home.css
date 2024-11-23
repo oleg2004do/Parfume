@@ -1,0 +1,92 @@
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); /* Автоматичне налаштування колонок */
+  gap: 20px; /* Відстань між картками товарів */
+  padding: 20px;
+  max-width: 1200px; /* Обмеження ширини контейнера */
+  margin: 0 auto; /* Центрування сітки */
+}
+
+.product-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  padding: 15px;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+
+  margin-bottom: 15px;
+}
+
+.product-details {
+  margin-bottom: 15px;
+}
+
+.product-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.product-description {
+  font-size: 0.9rem;
+  color: #000000;
+}
+
+.product-price {
+  font-size: 1rem;
+  color: #000000;
+  font-weight: bold;
+}
+
+.product-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.product-actions .btn {
+  font-size: 0.9rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.product-actions .btn:hover {
+  opacity: 0.9;
+}
+
+.product-actions .btn-info {
+  background-color: #007bff;
+  color: #000000;
+}
+
+.product-actions .btn-warning {
+  background-color: #ffc107;
+  color: black;
+}
+
+.product-actions .btn-danger {
+  background-color: #dc3545;
+  color: rgb(101, 47, 47);
+}
+
+.product-actions .btn-success {
+  background-color: #28a745;
+  color: rgb(25, 16, 16);
+}

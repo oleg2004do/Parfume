@@ -1,0 +1,15 @@
+<!-- app/views/users/show.html.erb -->
+
+<h1>Profile</h1>
+
+<% if current_user %>
+  <div class="user-profile">
+    <p><strong>Name:</strong> <%= current_user.name %></p>
+    <p><strong>Email:</strong> <%= current_user.email %></p>
+
+    <%= link_to "Edit Profile", edit_profile_path, class: "btn btn-primary" %> <!-- Кнопка для редагування профілю -->
+  </div>
+  <%= link_to 'Back to Home', root_path, class: 'btn btn-secondary' %> <!-- Кнопка для повернення на головну сторінку -->
+<% else %>
+  <p>You need to log in to see your profile.</p>
+<% end %>

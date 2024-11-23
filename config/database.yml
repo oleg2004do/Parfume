@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: 1111
+  host: localhost
+  port: 1111
+
+development:
+  <<: *default
+  database: perfume_store_development
+
+test:
+  <<: *default
+  database: perfume_store_test
+
+production:
+  <<: *default
+  database: perfume_store_production
+  username: postgres
+  password: <%= ENV["PERFUME_STORE_DATABASE_PASSWORD"] || "ваш_пароль_від_PostgreSQL" %>

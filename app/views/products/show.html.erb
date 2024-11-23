@@ -1,0 +1,49 @@
+<h1><%= @product.name %></h1>
+
+<% if @product.image&.attached? %>
+  <%= image_tag @product.image, size: "400x400", alt: @product.name %>
+<% else %>
+  <p>No Image Available</p>
+<% end %>
+
+<p><%= @product.description %></p>
+<p><strong>Price:</strong> $<%= @product.price %></p>
+
+<%= link_to 'Back to Home', root_path, class: 'btn btn-primary' %>
+
+<% if current_user&.admin? %>
+  <%= link_to "Edit", edit_product_path(@product), class: "btn btn-warning" %>
+  <%= link_to "Delete", product_path(@product), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+<% else %>
+  <%= link_to 'Buy', add_item_cart_path(product_id: @product.id), method: :post, class: 'btn btn-success' %>
+<% end %>
+
+<h2>Leave a review:</h2>
+
+<%= form_with model: [@product, @product.reviews.build], local: true do |form| %>
+  <% if user_signed_in? %>
+    <div class="field">
+      <%= form.label :rating %><br>
+      <%= form.number_field :rating, in: 1..5, step: 1, required: true %>
+    </div>
+
+    <div class="field">
+      <%= form.label :content %><br>
+      <%= form.text_area :content, required: true %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Submit Review", class: "btn btn-primary" %>
+    </div>
+  <% else %>
+    <p>Please <%= link_to "log in", login_path %> to leave a review.</p>
+  <% end %>
+<% end %>
+
+<h3>Reviews:</h3>
+<% @product.reviews.each do |review| %>
+  <div class="review">
+    <p><strong><%= review.user ? review.user.name : 'Anonymous' %> (Rating: <%= review.rating %>)</strong></p>
+    <p><%= review.content %></p>
+  </div>
+<% end %>
