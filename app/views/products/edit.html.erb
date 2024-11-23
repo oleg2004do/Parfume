@@ -1,29 +1,33 @@
+<!-- app/views/products/edit.html.erb -->
+
 <h1>Edit Product</h1>
 
-<%= form_with model: @product, local: true do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+<div class="edit-product-container">
+  <%= form_with model: @product, local: true do |form| %>
+    <div class="field">
+      <%= form.label :name %><br>
+      <%= form.text_field :name %>
+    </div>
 
-  <div>
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+    <div class="field">
+      <%= form.label :description %><br>
+      <%= form.text_area :description %>
+    </div>
 
-  <div>
-    <%= form.label :price %>
-    <%= form.number_field :price, step: 0.01 %>
-  </div>
+    <div class="field">
+      <%= form.label :price %><br>
+      <%= form.number_field :price, step: 0.01 %>
+    </div>
 
-  <div>
-    <%= form.label :image %>
-    <%= form.file_field :image %>
-  </div>
+    <div class="field">
+      <%= form.label :image %><br>
+      <%= form.file_field :image %>
+    </div>
 
-  <div>
-    <%= form.submit "Update Product" %>
-  </div>
-<% end %>
+    <div class="actions">
+      <%= form.submit "Update Product", class: "btn btn-primary" %>
+    </div>
+  <% end %>
 
-<%= link_to 'Back to Home', root_path, class: 'btn btn-primary' %>
+  <%= link_to 'Back to Home', root_path, class: 'btn btn-primary' %> <!-- Кнопка повернення на головну -->
+</div>

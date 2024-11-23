@@ -1,51 +1,58 @@
+<!-- app/views/checkouts/new.html.erb -->
+
 <h1>Confirm Your Order</h1>
 
-<%= form_with model: @order, url: checkouts_path, method: :post do |form| %>
-  <h2>Delivery Information</h2>
-  <div>
-    <%= form.label :phone_number, "Phone Number" %>
-    <%= form.text_field :phone_number, required: true %>
-  </div>
+<div class="confirm-order-container">
+  <%= form_with model: @order, url: checkouts_path, method: :post do |form| %>
+    
+    <h2>Delivery Information</h2>
+    <div class="field">
+      <%= form.label :phone_number, "Phone Number" %>
+      <%= form.text_field :phone_number, required: true %>
+    </div>
 
-  <div>
-    <%= form.label :delivery_method, "Delivery Method" %>
-    <%= form.select :delivery_method, ['Nova Poshta', 'Ukrposhta'], prompt: 'Select Delivery Method', required: true %>
-  </div>
+    <div class="field">
+      <%= form.label :delivery_method, "Delivery Method" %>
+      <%= form.select :delivery_method, ['Nova Poshta', 'Ukrposhta'], prompt: 'Select Delivery Method', required: true %>
+    </div>
 
-  <div>
-    <%= form.label :delivery_address, "Delivery Address" %>
-    <%= form.text_area :delivery_address, rows: 3, required: true %>
-  </div>
+    <div class="field">
+      <%= form.label :delivery_address, "Delivery Address" %>
+      <%= form.text_area :delivery_address, rows: 3, required: true %>
+    </div>
 
-  <h2>Payment Information</h2>
-  <div>
-    <%= form.label :payment_method, "Payment Method" %>
-    <%= form.select :payment_method, ['Cash on Delivery', 'Online Payment'], prompt: 'Select Payment Method', required: true %>
-  </div>
+    <h2>Payment Information</h2>
+    <div class="field">
+      <%= form.label :payment_method, "Payment Method" %>
+      <%= form.select :payment_method, ['Cash on Delivery', 'Online Payment'], prompt: 'Select Payment Method', required: true %>
+    </div>
 
-  <h3>Your Cart</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th>Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @cart_items.each do |item| %>
+    <h3>Your Cart</h3>
+    <table>
+      <thead>
         <tr>
-          <td><%= item.product.name %></td>
-          <td><%= item.quantity %></td>
-          <td>$<%= item.product.price %></td>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @cart_items.each do |item| %>
+          <tr>
+            <td><%= item.product.name %></td>
+            <td><%= item.quantity %></td>
+            <td>$<%= item.product.price %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-  <div>
-    <strong>Total: $<%= @cart_items.sum { |item| item.quantity * item.product.price } %></strong>
-  </div>
+    <div>
+      <strong>Total: $<%= @cart_items.sum { |item| item.quantity * item.product.price } %></strong>
+    </div>
 
-  <%= form.submit "Place Order", class: "btn btn-success" %>
-<% end %>
+    <%= form.submit "Place Order", class: "btn btn-success" %>
+  <% end %>
+
+  <%= link_to 'Back to Home', root_path, class: 'btn btn-secondary' %> <!-- Кнопка повернення на головну -->
+</div>

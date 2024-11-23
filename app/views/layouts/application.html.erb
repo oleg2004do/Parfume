@@ -3,12 +3,61 @@
   <head>
     <title><%= content_for(:title) || "Perfume Store" %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="<%= asset_path('aromatherapy.png') %>" sizes="180x180" type="image/png">
+    <link rel="shortcut icon" href="<%= asset_path('aromatherapy.png') %>" type="image/png">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag 'home', media: 'all', 'data-turbo-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
-   
+    
+
+    <% if controller_name == 'orders' && action_name == 'show' %>
+    <%= stylesheet_link_tag "order_confirmation", "data-turbo-track": "reload" %>
+    <% end %>
+
+    <% if controller_name == 'checkouts' && action_name == 'new' %>
+    <%= stylesheet_link_tag 'confirm_order', "data-turbo-track": "reload" %>
+    <% end %>
+
+    <% if controller_name == 'products' && action_name == 'edit' %>
+    <%= stylesheet_link_tag 'edit_product', "data-turbo-track": "reload" %>
+    <% end %>
+
+    <% if controller_name == 'users' && action_name == 'edit' %>
+    <%= stylesheet_link_tag 'edit_profile', "data-turbo-track": "reload" %>
+    <% end %>
+
+    <% if controller_name == 'users' && action_name == 'show' %>
+    <%= stylesheet_link_tag 'profile', "data-turbo-track": "reload" %>
+    <% end %>
+
+    <% if controller_name == 'users' && action_name == 'new' %>
+      <%= stylesheet_link_tag 'sign_up', "data-turbo-track": "reload" %>
+    <% end %>
+
+    <% if controller_name == 'sessions' && action_name == 'new' %>
+      <%= stylesheet_link_tag 'login', "data-turbo-track": "reload" %>
+    <% end %>
+
+    <% if controller_name == 'carts' && action_name == 'show' %>
+      <%= stylesheet_link_tag 'cart', "data-turbo-track": "reload" %>
+    <% end %>
+
+    <% if controller_name == 'pages' && action_name == 'contact_us' %>
+      <%= stylesheet_link_tag 'contact_us', "data-turbo-track": "reload" %>
+    <% end %>
+
+     <% if controller_name == 'products' && action_name == 'show' %>
+      <%= stylesheet_link_tag 'view_product', "data-turbo-track": "reload" %>
+    <% end %>
+
+   <% if controller_name == 'products' && action_name == 'new' %>
+      <%= stylesheet_link_tag "new_product", "data-turbo-track": "reload" %>
+    <% end %>
+
     <%= javascript_importmap_tags %>
     <!-- Шрифти -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -21,7 +70,7 @@
           <%= link_to "Contact Us", contact_us_path, class: "btn btn-contact" %>
           
           <% if current_user %>
-            <span>Welcome, <%= current_user.name %>!</span>
+            
             <%= link_to 'Log Out', logout_path, method: :get, class: 'btn logout' %>
             <%= link_to 'Cart', cart_path, class: 'btn btn-cart' %>
             
@@ -51,8 +100,6 @@
       <% end %>
     </main>
 
-    <footer class="main-footer">
-      <p>&copy; <%= Time.now.year %> Perfume Store. All rights reserved.</p>
-    </footer>
+    
   </body>
 </html>

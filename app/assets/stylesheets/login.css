@@ -1,0 +1,86 @@
+/* login.css */
+
+/* Основний стиль для сторінки логіну */
+.login-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 100px auto;
+  padding: 50px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #28a745;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0px 0px 0px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
+  background-color: #fafafa;
+  transition: border-color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.login-container input:focus {
+  border-color: #28a745; /* Зелене підсвічування при фокусі */
+  outline: none;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 15px;
+  background-color: #2980b9; /* Синя кнопка */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-container button:hover {
+  background-color: #0056b3; /* Темніший синій при наведенні */
+  transform: scale(1.05); /* Легке збільшення кнопки при наведенні */
+}
+
+.login-container .signup-link {
+  margin-top: 30px;
+
+  font-size: 1rem;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-container .signup-link:hover {
+  text-decoration: underline;
+}
+
+.alert {
+  padding: 10px;
+  margin: 15px 0;
+  background-color: #f8d7da;
+  color: #721c24;
+  border-radius: 5px;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}

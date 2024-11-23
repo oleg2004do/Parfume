@@ -1,38 +1,41 @@
 <h1>Your Cart</h1>
 
 <% if @cart.cart_items.any? %>
-  <table class="cart-table">
-    <thead>
-      <tr>
-        <th>Product</th>
-        <th>Name</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Total</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @cart.cart_items.each do |item| %>
-        <tr id=cart-item-<%= item.id %>>
-          <td><%= image_tag(item.product.image, size: "50x50", alt: item.product.name) %></td>
-          <td><%= item.product.name %></td>
-          <td><%= item.quantity %></td>
-          <td>$<%= item.product.price %></td>
-          <td>$<%= item.product.price * item.quantity %></td>
-          <td>
-            <%= link_to 'Remove', remove_item_cart_path(item.id), method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-          </td>
+  <div class="cart-container">
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total</th>
+          <th>Actions</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @cart.cart_items.each do |item| %>
+          <tr id="cart-item-<%= item.id %>">
+            <td><%= image_tag(item.product.image, size: "50x50", alt: item.product.name) %></td>
+            <td><%= item.product.name %></td>
+            <td><%= item.quantity %></td>
+            <td>$<%= item.product.price %></td>
+            <td>$<%= item.product.price * item.quantity %></td>
+            <td>
+              <%= link_to 'Remove', remove_item_cart_path(item.id), method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-  <h3>Total Price: $<%= @total_price %></h3>
+    <h3>Total Price: $<%= @total_price %></h3>
 
-  <%= link_to 'Back to Home', root_path, class: 'btn btn-primary' %>
-  <%= link_to 'Proceed to Checkout', new_checkout_path, class: 'btn btn-success' %>
-
+    <div class="cart-actions">
+      <%= link_to 'Back to Home', root_path, class: 'btn btn-primary' %>
+      <%= link_to 'Proceed to Checkout', new_checkout_path, class: 'btn btn-success' %>
+    </div>
+  </div>
 <% else %>
   <p>Your cart is empty.</p>
   <%= link_to 'Continue Shopping', root_path, class: 'btn btn-primary' %>

@@ -1,0 +1,109 @@
+/* edit_profile.css */
+
+/* Основний стиль для сторінки редагування профілю */
+.edit-profile-container {
+  width: 100%;
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Заголовок */
+h1 {
+  font-size: 2.5rem;
+  color: #28a745;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+/* Стиль для полів вводу */
+.edit-profile-container .field {
+  margin-bottom: 20px;
+}
+
+.edit-profile-container .field label {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.edit-profile-container .field input {
+  width: 500px;
+  padding: 15px;
+
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
+  background-color: #fafafa;
+  transition: border-color 0.3s ease;
+}
+
+.edit-profile-container .field input:focus {
+  border-color: #28a745; /* Зелене підсвічування при фокусі */
+  outline: none;
+}
+
+/* Кнопка для відправлення форми */
+.edit-profile-container .actions {
+  margin-top: 20px;
+}
+
+.edit-profile-container .actions .btn-primary {
+  margin-bottom: 20px;
+  width: 500px;
+  padding: 15px;
+  background-color: #007bff; /* Синій колір */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-profile-container .actions .btn-primary:hover {
+  background-color: #0056b3; /* Темніший синій при наведенні */
+}
+
+/* Кнопка повернення на сторінку профілю */
+.edit-profile-container .btn-secondary {
+  width: 100%;
+  padding: 15px;
+  background-color: #28a745; /* Зелений колір */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-profile-container .btn-secondary:hover {
+  background-color: #218838; /* Темніший зелений при наведенні */
+}
+
+/* Стиль для повідомлення про помилку */
+.alert {
+  padding: 10px;
+  margin: 15px 0;
+  background-color: #f8d7da;
+  color: #721c24;
+  border-radius: 5px;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}

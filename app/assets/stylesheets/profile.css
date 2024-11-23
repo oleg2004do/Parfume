@@ -1,0 +1,78 @@
+/* profile.css */
+
+/* Основний стиль для сторінки профілю */
+.user-profile {
+  width: 100%;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Стиль заголовка */
+h1 {
+  font-size: 2.5rem;
+  color: #28a745;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+/* Стиль для інформації користувача */
+.user-profile p {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 10px 0;
+}
+
+/* Стиль для жирного тексту */
+.user-profile strong {
+  font-weight: bold;
+  color: #007bff; /* Блакитний колір для міток */
+}
+
+/* Стиль для кнопок */
+.btn-primary,
+.btn-secondary {
+  padding: 12px 20px;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Кнопка для редагування профілю */
+.btn-primary {
+  background-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Темніший синій при наведенні */
+}
+
+/* Кнопка для повернення на головну */
+.btn-secondary {
+  background-color: #007bff;
+}
+
+.btn-secondary:hover {
+  background-color: #007bff; /* Темніший зелений при наведенні */
+}
+
+/* Стиль для повідомлення про необхідність логіну */
+p {
+  font-size: 1.2rem;
+  color: #721c24;
+
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+}

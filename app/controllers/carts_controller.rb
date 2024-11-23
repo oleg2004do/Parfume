@@ -28,7 +28,7 @@ class CartsController < ApplicationController
     cart_item = @cart.cart_items.find_by(id: params[:id])
     if cart_item
       cart_item.destroy
-      redirect_to cart_path, notice: "Item was removed from your cart."
+      redirect_to cart_path 
     else
       redirect_to cart_path, alert: "Item not found."
     end

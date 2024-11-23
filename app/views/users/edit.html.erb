@@ -2,30 +2,32 @@
 
 <h1>Edit Profile</h1>
 
-<%= form_with model: @user, url: update_profile_path, method: :patch, local: true do |form| %>
-  <div class="field">
-    <%= form.label :name %><br>
-    <%= form.text_field :name, value: current_user.name, required: true %>
-  </div>
+<div class="edit-profile-container">
+  <%= form_with model: @user, url: update_profile_path, method: :patch, local: true do |form| %>
+    <div class="field">
+      <%= form.label :name %><br>
+      <%= form.text_field :name, value: current_user.name, required: true %>
+    </div>
 
-  <div class="field">
-    <%= form.label :email %><br>
-    <%= form.email_field :email, value: current_user.email, required: true %>
-  </div>
+    <div class="field">
+      <%= form.label :email %><br>
+      <%= form.email_field :email, value: current_user.email, required: true %>
+    </div>
 
-  <div class="field">
-    <%= form.label :password %><br>
-    <%= form.password_field :password %>
-  </div>
+    <div class="field">
+      <%= form.label :password %><br>
+      <%= form.password_field :password %>
+    </div>
 
-  <div class="field">
-    <%= form.label :password_confirmation %><br>
-    <%= form.password_field :password_confirmation %>
-  </div>
+    <div class="field">
+      <%= form.label :password_confirmation %><br>
+      <%= form.password_field :password_confirmation %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit "Update Profile", class: "btn btn-primary" %>
-  </div>
-<% end %>
+    <div class="actions">
+      <%= form.submit "Update Profile", class: "btn btn-primary" %>
+    </div>
+  <% end %>
 
-<%= link_to 'Back to Profile', profile_path, class: 'btn btn-secondary' %>
+  <%= link_to 'Back to Profile', profile_path, class: 'btn btn-secondary' %> <!-- Кнопка повернення на профіль -->
+</div>

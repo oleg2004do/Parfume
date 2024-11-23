@@ -1,0 +1,73 @@
+/* sign_up.css */
+
+/* Основний стиль для сторінки Sign Up */
+.signup-container {
+  width: 100%;
+  max-width: 500px;
+  margin: -50px auto;
+  padding: 40px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #28a745;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+/* Стиль для полів введення */
+.form-input {
+  width: 100%;
+  padding: 15px;
+  margin: 15px 0; /* Додано відступ між полями */
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
+  background-color: #fafafa;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #28a745; /* Зелене підсвічування при фокусі */
+  outline: none;
+}
+
+/* Стиль для кнопок */
+.btn-primary {
+  width: 100%; /* Розтягуємо кнопку на всю ширину */
+  padding: 15px;
+  background-color: #2980b9; /* Синя кнопка */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px; /* Відступ від полів */
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Темніший синій при наведенні */
+  transform: scale(1.05); /* Легке збільшення кнопки при наведенні */
+}
+
+/* Стиль для посилання "Back to Home" */
+.btn-home {
+  padding-top: 30px;
+  margin-top: 20px;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.btn-home:hover {
+  text-decoration: underline;
+}

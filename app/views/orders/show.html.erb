@@ -1,28 +1,34 @@
-<h1>Order Confirmation</h1>
+<!-- app/views/orders/show.html.erb -->
 
-<p><strong>Phone Number:</strong> <%= @order.phone_number %></p>
-<p><strong>Delivery Method:</strong> <%= @order.delivery_method %></p>
-<p><strong>Payment Method:</strong> <%= @order.payment_method %></p>
-<p><strong>Delivery Address:</strong> <%= @order.delivery_address %></p>
+<div class="container">
+  <h1>Order Confirmation</h1>
 
-<h2>Items</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Product</th>
-      <th>Quantity</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @order.order_items.each do |item| %>
+  <p><strong>Phone Number:</strong> <%= @order.phone_number %></p>
+  <p><strong>Delivery Method:</strong> <%= @order.delivery_method %></p>
+  <p><strong>Payment Method:</strong> <%= @order.payment_method %></p>
+  <p><strong>Delivery Address:</strong> <%= @order.delivery_address %></p>
+
+  <h2>Items</h2>
+  <table>
+    <thead>
       <tr>
-        <td><%= item.product.name %></td>
-        <td><%= item.quantity %></td>
-        <td>$<%= item.price %></td>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @order.order_items.each do |item| %>
+        <tr>
+          <td><%= item.product.name %></td>
+          <td><%= item.quantity %></td>
+          <td>$<%= item.price %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<p><strong>Total:</strong> $<%= @order.order_items.sum { |item| item.quantity * item.price } %></p>
+  <p><strong>Total:</strong> $<%= @order.order_items.sum { |item| item.quantity * item.price } %></p>
+
+  <%= link_to 'Back to Home', root_path, class: 'btn' %>
+</div>

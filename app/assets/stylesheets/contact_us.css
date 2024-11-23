@@ -1,0 +1,54 @@
+/* contact_us.css */
+
+/* Основний стиль для сторінки Contact Us */
+.contact-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Стиль для заголовка */
+h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* Стиль для контактних даних */
+.contact-details {
+  font-size: 1rem;
+  color: #7f8c8d;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* Стиль для посилання */
+.contact-details a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-details a:hover {
+  text-decoration: underline;
+}
+
+/* Стиль для кнопки */
+.btn-primary {
+  background-color: #2980b9;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #3498db;
+}
